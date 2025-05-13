@@ -1,0 +1,8 @@
+# IDE
+.idea/
+
+# vim 
+*.swp
+
+# C++ 
+*build*/
