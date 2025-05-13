@@ -1,15 +1,29 @@
 /**
+ * @file scaleblancer.cpp
+ * @brief ScaleBalancer - a balancing system for composite scales.
  *
+ * This application models a recursive system of mechanical scales where each scale
+ * can hold either a physical weight (Pan) or another scale on its left and right sides.
+ *
+ * The input is a series of CSV lines (from stdin) of the form:
+ *     scale_name,left_side,right_side
+ * where each side can either be a numeric weight or the name of another scale.
+ *
+ * The program parses this input into a tree of interconnected Scale and Pan objects.
+ * It then computes the additional balancing mass needed on each side to ensure equilibrium.
+ *
+ * The results are output as CSV lines (to stdout) showing:
+ *     scale_name,left_balance_mass,right_balance_mass
  */
 
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 #include <memory>
-#include <ranges>
 #include <string>
 #include <unordered_map>
 #include <variant>
 #include <vector>
+#include <ranges>
 
 /**
  * @brief Represents a pan with weight and optional counterbalance.
@@ -175,20 +189,23 @@ inline void report_changes(std::ostream& os, std::span<scale_wrapper> scales_lis
 }
 
 /**
- * @brief the application's main function.
+ * @brief Entry point of the ScaleBalancer application.
+ *
+ * Reads input from standard input, constructs and balances a set of interconnected scales,
+ * then writes the balancing results to standard output.
  */
-
 int main()
 {
     std::vector<scale_wrapper> scales_list;
 
+    // Parse input lines to build the list of interconnected scales
     parse_scales(std::cin, scales_list);
-   
+
+    // Compute necessary balancing masses for each scale
     balance_each_scale(scales_list);
 
+    // Output the balancing results to standard output
     report_changes(std::cout, scales_list);
 
     return 0;
 }
-
-
