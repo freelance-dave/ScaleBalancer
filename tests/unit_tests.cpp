@@ -1,5 +1,16 @@
-/***
- * @brief
+/**
+ * @file unit_tests.cpp
+ * @brief Unit tests for core components of the ScaleBalancer system.
+ *
+ * This suite uses the Catch2 testing framework to verify the correctness of individual
+ * components in the ScaleBalancer application. It focuses on unit-level validation of
+ * Pan and Scale initialization, parsing logic, and balancing behavior.
+ *
+ * The tests cover:
+ * - Construction and initialization of Pan and Scale objects.
+ * - Parsing of scale configuration lines.
+ * - Balance computation including edge cases like self-references and extreme weight mismatches.
+ * - Recursive balancing of nested scales.
  */
 
 #define main __main__

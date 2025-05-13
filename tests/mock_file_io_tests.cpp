@@ -1,5 +1,16 @@
-/***
- * @brief
+/**
+ * @file mock_file_io_tests.cpp
+ * @brief Unit tests for ScaleBalancer using mocked file I/O.
+ *
+ * This test suite uses in-memory streams to simulate file input and output,
+ * allowing verification of the ScaleBalancer's behavior without real file access.
+ *
+ * The tests validate:
+ * - Correct computation of balancing weights from structured input.
+ * - Handling of invalid or malformed lines.
+ * - Processing of nested scale relationships and recursive balancing logic.
+ *
+ * The Catch2 framework is used to define and run test cases.
  */
 
 #define main __main__

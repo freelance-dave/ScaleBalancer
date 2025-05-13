@@ -1,5 +1,15 @@
-/***
- * @brief
+/**
+ * @file integration_tests.cpp
+ * @brief Integration tests for the ScaleBalancer application.
+ *
+ * This test suite verifies end-to-end functionality of the ScaleBalancer system.
+ * It ensures correct parsing, balancing, and reporting behavior when interacting
+ * with nested and flat scale configurations through standard input and output.
+ *
+ * The tests use the Catch2 framework to validate scenarios including:
+ * - Simple input requiring balancing.
+ * - Scales that are already balanced.
+ * - Nested scales with recursive balance computation.
  */
 
 #define main __main__

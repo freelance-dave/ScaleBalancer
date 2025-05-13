@@ -8,20 +8,20 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Execution source
 add_executable(scaleblancer src/scaleblancer.cpp)
-target_include_directories(scaleblancer 
+target_include_directories(scaleblancer
         PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
         $<INSTALL_INTERFACE:src>
 )
 
-if(BUILD_TESTING)
-    # CTEST argumes Must be set before including CTest framework.
+if (BUILD_TESTING)
+    # CTEST arguments must be set before including the CTest framework.
     set(CMAKE_CTEST_ARGUMENTS "--output-on-failure" "--output-junit" "junit.xml")
     find_package(Catch2 3 REQUIRED)
     include(Catch)
     include(CTest)
     enable_testing()
     add_subdirectory(tests)
-endif()
+endif ()
 
 
