@@ -143,7 +143,7 @@ inline void parse_scales(std::istream& infile, std::vector<scale_wrapper>& scale
 
         const auto [name, left, right] = parse_line(line);
 
-        // Valiate the parsed scales parameters
+        // Validate the parsed scales parameters
         if (name.empty() || left == name || right == name) {
             std::cerr << "Invalid line " << line_number << ": " << std::quoted(line) << '\n';
             continue;

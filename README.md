@@ -48,8 +48,9 @@ This project uses CMake for building and CTest for running unit tests.
 
 ### Build the Application
 ```bash
-cmake -H. -B build -G Ninja -Wno-dev -DBUILD_TESTING=On
+mkdir -p build
 cd build
+cmake .. -G Ninja -Wno-dev -DBUILD_TESTING=On
 cmake --build .
 ```
 This will generate the `scalebalancer` executable in the `build` directory.
@@ -57,7 +58,6 @@ This will generate the `scalebalancer` executable in the `build` directory.
 ### Run Unit Tests
 After building the project, run the following command from the `build` directory:
 ```bash
-# Run all tests from the build director
 ctest
 ```
 Or, to see detailed output from the tests:
